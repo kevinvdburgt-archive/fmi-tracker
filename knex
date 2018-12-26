@@ -1,0 +1,7 @@
+#!/bin/bash
+
+if [ -z "$1" ]; then
+  npm run knex -- -h
+else
+  npm run knex -- $@
+fi

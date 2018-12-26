@@ -5,7 +5,11 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "nodemon --exec babel-node --watch src/ -- src/index.js"
+    "dev": "nodemon --exec babel-node --watch src/ -- src/index.js",
+    "knex": "./node_modules/.bin/knex --knexfile src/database/knexfile.js",
+    "build": "./node_modules/.bin/babel src --out-dir bin",
+    "cleanup": "rm -rf bin",
+    "start": "node ./bin/index.js"
   },
   "keywords": [],
   "author": "",
@@ -19,6 +23,12 @@
     "nodemon": "^1.18.9"
   },
   "dependencies": {
+    "bull": "^3.5.2",
+    "cron": "^1.6.0",
+    "dotenv": "^6.2.0",
+    "knex": "^0.16.3",
+    "mysql": "^2.16.0",
+    "mysql2": "^1.6.4",
     "request": "^2.88.0",
     "request-promise-native": "^1.0.5"
   }

@@ -7,7 +7,7 @@ export const login = async (apple_id, password, session) => {
   session.jar = jar();
 
   try {
-    const a = await request({
+    const response = await request({
       method: 'POST',
       url: 'https://setup.icloud.com/setup/ws/1/login',
       headers: {
@@ -21,8 +21,7 @@ export const login = async (apple_id, password, session) => {
       jar: session.jar,
     });
 
-    // console.log(a.body);
-    return a;
+    return response;
   } catch (err) {
     console.log('ERRRRR',err);
   }
@@ -30,16 +29,17 @@ export const login = async (apple_id, password, session) => {
 
 export const devices = async (session) => {
   try {
-    const body = await request({
+    const response = await request({
       method: 'POST',
       url: 'https://p33-fmipweb.icloud.com/fmipservice/client/web/initClient',
       headers: {
         Origin: 'https://www.icloud.com',
       },
+      json: {},
       jar: session.jar,
     });
 
-    return body;
+    return response;
   } catch (err) {
     console.log('Error:', err);
     return null;
