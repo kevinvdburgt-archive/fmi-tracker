@@ -1,20 +1,13 @@
-import request from 'request';
+console.log('Hello Docker');
 
-const jar = request.jar();
+// import { login, devices } from './icloud';
 
-request({
-  method: 'POST',
-  url: 'https://setup.icloud.com/setup/ws/1/login',
-  headers: {
-    Origin: 'https://www.icloud.com',
-  },
-  json: {
-    apple_id: '',
-    password: '',
-    extended_login: true,
-  },
-  jar,
-}, (err, response, body) => {
-  
-  console.log(jar);
-});
+// (async () => {
+//   const session = {};
+
+//   const result = await login('', '', session);
+
+//   const dev = await devices(session);
+
+//   console.log(dev);
+// })();
